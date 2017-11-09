@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Done In the Last Week}{3}{1}{1}
+\beamer@sectionintoc {2}{To Do Next Week}{17}{1}{2}
+\beamer@sectionintoc {3}{Tools Like Powerpoint}{21}{2}{3}
+\beamer@sectionintoc {4}{T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m {}\ Tools}{30}{2}{4}

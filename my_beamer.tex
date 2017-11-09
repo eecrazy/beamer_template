@@ -1,0 +1,189 @@
+\documentclass[11pt,UTF8]{ctexbeamer}
+\mode<article> % 仅应用于article版本
+{
+  \usepackage{beamerbasearticle}
+  \usepackage{fullpage}
+  \usepackage{hyperref}
+}
+%% 下面的包控制beamer的风格，可以根据自己的爱好修改
+\usepackage{beamerthemesplit}   % 使用split风格
+\usepackage{beamerthemeshadow}  % 使用shadow风格
+%% 这些包是可能会用到的，不必修改
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{amsmath,amssymb}
+\usepackage{graphics}
+\usepackage{multimedia}
+%% 下面的代码用来读入Logo图象
+\pgfdeclaremask{logomask}{pku-tower-mask}
+\pgfdeclareimage[mask=logomask,height=1.5cm]{logo}{pku-tower}
+\pgfdeclaremask{beidamask}{beida-mark-mask}
+\pgfdeclareimage[mask=beidamask,height=0.25cm]{beida}{beida-mark}
+\pgfdeclaremask{titlemask}{pku-lake2-mask}
+\pgfdeclareimage[mask=titlemask,height=2.5cm]{title}{pku-lake2}
+
+% \logo{\vbox{\hbox{\hfill\pgfuseimage{logo}}}} 
+%设置logo图标
+%% 定义一些自选的模板，包括背景、图标、导航条和页脚等，修改要慎重
+\beamertemplateshadingbackground{red!0}{structure!10}
+\beamertemplatesolidbackgroundcolor{white!90!blue}
+\beamertemplatetransparentcovereddynamic
+\beamertemplateballitem
+\beamertemplatenumberedballsectiontoc
+% \beamertemplatelargetitlepage
+\beamertemplateboldpartpage
+\makeatletter
+\usefoottemplate{ %重新定义页脚，加入作者，单位，单位图标，和文档标题
+  \vbox{\tiny%
+    \hbox{%
+      \setbox\beamer@linebox=\hbox to\paperwidth{%
+        \hbox to.5\paperwidth{\hfill\tiny\color{white}\textbf{\insertshortauthor\quad\insertshortinstitute}\hskip.1cm\lower 0.35em\hbox{}\hskip.3cm}%
+        \hbox to.5\paperwidth{\hskip.3cm\tiny\color{white}\textbf{\insertshorttitle}\hfill}\hfill}%
+      \ht\beamer@linebox=2.625ex%
+      \dp\beamer@linebox=0pt%
+      \setbox\beamer@linebox=\vbox{\box\beamer@linebox\vskip1.125ex}%
+      \color{structure}\hskip-\Gm@lmargin\vrule width.5\paperwidth
+      height\ht\beamer@linebox\color{structure!70}\vrule width.5\paperwidth
+      height\ht\beamer@linebox\hskip-\paperwidth% 
+      \hbox{\box\beamer@linebox\hfill}\hfill\hskip-\Gm@rmargin}
+  }
+}
+\makeatother
+%% 填写作者，单位，日期，标题等文档信息
+\title{Weekly Report}
+\subtitle{}
+\author[Li Zhongyang]{Li Zhongyang}
+\institute[ HIT-SCIR]{
+  Research Center for Social Computing and Information Retrieval\\
+  Department of Computer Science and Technology\\
+  Harbin Institute of Technology
+}
+\date[]{\today}
+\subject{Report}
+% \titlegraphic{\pgfuseimage{title}}
+% 在每个Section前都会加入的Frame:outline
+\AtBeginSection[]{ 
+  \frame<handout:0>{
+    \frametitle{Outline}
+    \tableofcontents[current,currentsubsection]
+  }
+}
+\begin{document}
+\frame[plain]{\titlepage} % 产生主题页，plain选项表示不显示页眉页脚等内容
+% \section<presentation>*{Outline}   % 带*号表示不加到目录中
+% \frame{
+%   \nameslide{outline}
+%   \frametitle{Outline}
+%   \tableofcontents[pausesections]
+%   \note{At most 1 minute for the outline}
+% }
+
+\part{Weekly Report}
+\frame{\partpage}
+
+\section{Done In the Last Week}
+
+\frame[<+-| alert@+>]{
+  \frametitle{Read Papers}
+  \begin{itemize}
+  \item Neural Networks
+    \begin{enumerate}
+    \item Memory networks
+    \item Seq2Seq model 
+    \item Attention mechanism
+    \end{enumerate}
+  \item Causal and temporal
+    \begin{enumerate}
+    \item How to judge causal relationship between events
+    \item How to judge temporal relationship between events
+    \end{enumerate}
+  \end{itemize}
+}
+
+\frame[<+-| alert@+>]{
+  \frametitle{Experiments}
+  \begin{itemize}
+  \item Data Processing
+    \begin{enumerate}
+    \item extract 30,000 causal instances
+    \item each contains ‘因为，所以’
+    \end{enumerate}
+  \item The Seq2Seq Model with Adversarial Training
+    \begin{enumerate}
+    \item Seq2Seq model 
+    \item Adversarial Training
+    \end{enumerate}
+  \end{itemize}
+}
+
+\section{To Do Next Week}
+
+\frame[<+-| alert@+>]{
+  \frametitle{\secname}
+  \begin{enumerate}
+  \item Read more papers
+  \item Continue the experiment
+  \end{enumerate}
+}
+
+\part{Slides Tools}
+\frame{\partpage}
+
+
+\section{Tools Like Powerpoint}
+
+\frame[<+->]{
+  \frametitle{Tools Like Powerpoint}
+  \begin{itemize}
+  \item Advantage
+    \begin{enumerate}
+    \item What you see is what you get
+    \item All done in one software
+    \item Easy to learn
+    \end{enumerate}
+  \item Disadvantage
+    \begin{enumerate}
+    \item Commonly the software is not free
+    \item It depand on the software
+    \item It's hard for much formula
+    \end{enumerate}
+  \end{itemize}
+}
+
+\section{\TeX\ Tools}
+\frame[<+-| alert@+>]{
+  \frametitle{\TeX\ Tools}
+  \begin{enumerate}
+  \item Base PDF file
+  \item Deal with mathematic formula easily
+  \item Professional typeset 
+  \item Plain text, easy to reuse
+  \end{enumerate}
+}
+\frame[<+->]{
+  \frametitle{\TeX\ Slide Tools}
+  \begin{description}
+  \item[Beamer] A~standard~\LaTeX\ ~Document~ class,\\
+    Need~ no other post progress program\\
+    Work with other \LaTeX\ packages smoothly
+  \item[foiltex] Work with most of the~available~\LaTeX\ ~commands~and~environments\\
+    Use Macro $\backslash$Mylogo put some graphic as the logo
+  \item[prosper] Automatically generated table of contents, Portrait slides support \\
+    and possible to include notes in your presentation
+  \item[pdfscreen] Create document both fit to read in computer and for print
+  \item[seminar] A simple \LaTeX style designed for seminar presentations.
+  \item[TeXPower] A \LaTeX\ style \textsl{texpower.sty}
+  \end{description}
+}
+
+
+% \section*{Reference}
+% \frame{
+%   \frametitle{Reference}
+% }
+\frame{
+    \begin{centering}
+      \Huge Thank You! \\
+      Questions and Suggestions?\par
+    \end{centering}
+}
+\end{document}
